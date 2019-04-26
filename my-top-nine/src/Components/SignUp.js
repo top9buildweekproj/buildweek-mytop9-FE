@@ -8,7 +8,8 @@ import {
     SignupDiv, 
     SignupButton, 
     Signuph3, 
-    SignupP 
+    SignupP,
+    LinkDiv
 } from './Styles'; // Styled components
 
 class SignUp extends Component {
@@ -19,6 +20,7 @@ class SignUp extends Component {
 
     render() {
         return(
+            <>
             <SignupDiv>
                 <Signuph3>My Top 9</Signuph3>
                 <SignupP>Sign up to see your top 9</SignupP>
@@ -39,15 +41,18 @@ class SignUp extends Component {
                         // onChange={this.handleChange}
                     />
 
-                    <SignupButton type='submit'>Sign up</SignupButton>
-                    <Route exact path='/login' component={Login} />
-                    <Link to='/login' 
-                    style={{ textDecoration: 'none',
-                    color: '#444444' }}>
-                    Already have an account? Login
-                    </Link> {/* takes you to Login page */}        
+                    <SignupButton type='submit'>Sign up</SignupButton>       
                 </SignupForm>
             </SignupDiv>
+            <LinkDiv>
+                <Route exact path='/login' component={Login} />
+                <Link to='/login' 
+                style={{ textDecoration: 'none',
+                color: '#444444' }}>
+                Already have an account? Login
+                </Link> {/* takes you to Login page */} 
+            </LinkDiv>
+            </>
         )
     }
 }
