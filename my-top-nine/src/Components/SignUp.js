@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import Login from './Login';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { 
+    SignupForm, 
+    SignupInput, 
+    SignupDiv, 
+    SignupButton, 
+    Signuph3, 
+    SignupP 
+} from './Styles'; // Styled components
 
 class SignUp extends Component {
     // state = {
@@ -11,10 +19,11 @@ class SignUp extends Component {
 
     render() {
         return(
-            <div>
-                <h3>My Top 9</h3>
-                <form>
-                    <input
+            <SignupDiv>
+                <Signuph3>My Top 9</Signuph3>
+                <SignupP>Sign up to see your top 9</SignupP>
+                <SignupForm>
+                    <SignupInput
                         type='text'
                         name='username'
                         placeholder='Username'
@@ -22,7 +31,7 @@ class SignUp extends Component {
                         // onChange={this.handleChange}
                     />
 
-                    <input
+                    <SignupInput
                         type='text'
                         name='password'
                         placeholder='Password'
@@ -30,11 +39,15 @@ class SignUp extends Component {
                         // onChange={this.handleChange}
                     />
 
-                    <button type='submit'>Sign up</button>
+                    <SignupButton type='submit'>Sign up</SignupButton>
                     <Route exact path='/login' component={Login} />
-                    <Link to='/login'>Already have an account? Login</Link>           
-                </form>
-            </div>
+                    <Link to='/login' 
+                    style={{ textDecoration: 'none',
+                    color: '#444444' }}>
+                    Already have an account? Login
+                    </Link> {/* takes you to Login page */}        
+                </SignupForm>
+            </SignupDiv>
         )
     }
 }

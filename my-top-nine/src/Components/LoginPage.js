@@ -21,7 +21,7 @@ class LoginPage extends Component {
     render() {
         return(
             <div>
-                <SignUp
+                <SignUp // This contains the new account form
                     // handleChange={this.handleChange}
                 />      
             </div>

@@ -18,3 +18,5 @@ class LoginView extends Component {
 }
 
 export default LoginView;
+
+// This is the view that holds all of the routing to the Signup / Login pages.

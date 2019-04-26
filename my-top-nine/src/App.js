@@ -5,7 +5,7 @@ import LoginView from './Components/LoginView';
 function App() {
   return (
     <div className="App">
-      <LoginView />
+      <LoginView /> {/* This is the component that holds login/signup */}
     </div>
   );
 }

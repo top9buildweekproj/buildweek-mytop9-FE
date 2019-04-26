@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { 
+    SignupForm, 
+    SignupInput, 
+    SignupDiv, 
+    SignupButton, 
+    Signuph3, 
+    SignupP,
+    LinkDiv
+} from './Styles'; // Styled components
 
 
 class Login extends Component {
@@ -12,10 +21,12 @@ class Login extends Component {
     // }
     render() {
         return (
-            <div>
-                <h3>Please Log in!</h3>
-                <form>
-                    <input
+            <>
+            <SignupDiv>
+                <Signuph3>My Top 9</Signuph3>
+                <SignupP>Please Log in</SignupP>
+                <SignupForm>
+                    <SignupInput
                         type='text'
                         name='username'
                         placeholder='Username'
@@ -23,7 +34,7 @@ class Login extends Component {
                         // onChange={this.handleChange}
                     />
 
-                    <input
+                    <SignupInput
                         type='text'
                         name='password'
                         placeholder='Password'
@@ -31,10 +42,18 @@ class Login extends Component {
                         // onChange={this.handleChange}
                     />
 
-                    <button type='submit'>Login</button>
-                    <Link to='/'>Need to Sign up?</Link>
-                </form>
-            </div>
+                    <SignupButton type='submit'>Login</SignupButton>
+                    
+                </SignupForm>
+            </SignupDiv>
+            <LinkDiv>
+                <Link to='/' 
+                style={{ textDecoration: 'none', 
+                color: '#444444' }}>
+                Need to Sign up?
+                </Link> {/* takes you to SignUp page */}
+            </LinkDiv>
+            </>
         )
     }
     
