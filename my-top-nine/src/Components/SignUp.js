@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Login from './Login';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { signupUser } from '../Actions/index';
 import { 
     SignupForm, 
     SignupInput, 
@@ -13,10 +15,30 @@ import {
 } from './Styles'; // Styled components
 
 class SignUp extends Component {
-    // state = {
-    //     username: '',
-    //     password: '',
-    // }
+    state = {
+        user: {
+            username: '',
+            password: '',
+        }
+    }
+
+    handleChange = e => {
+        this.setState({
+            user: {
+                ...this.state.user,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
+    toggleIsSigningUp = () => {
+        this.setState({isSigningUp: !this.state.isSigningUp})
+    }
+
+    signupUser = () => {
+        this.props.signupUser(this.state.user)
+    }
+
 
     render() {
         return(
@@ -29,19 +51,22 @@ class SignUp extends Component {
                         type='text'
                         name='username'
                         placeholder='Username'
-                        // value={this.state.username}
-                        // onChange={this.handleChange}
+                        value={this.state.username}
+                        onChange={this.handleChange}
                     />
 
                     <SignupInput
                         type='text'
                         name='password'
                         placeholder='Password'
-                        // value={this.state.password}
-                        // onChange={this.handleChange}
+                        value={this.state.password}
+                        onChange={this.handleChange}
                     />
-
-                    <SignupButton type='submit'>Sign up</SignupButton>       
+                    {/* this should create a new account */}
+                    <SignupButton 
+                    type='submit'
+                    onClick={() => this.props.signupUser(this.state)}>
+                    Sign up</SignupButton>       
                 </SignupForm>
             </SignupDiv>
             <LinkDiv>
@@ -57,4 +82,8 @@ class SignUp extends Component {
     }
 }
 
-export default SignUp;
+const mapStateToProps = state => ({
+    isSigningUp: state.isSigningUp
+})
+
+export default connect(mapStateToProps, {signupUser})(SignUp);

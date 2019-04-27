@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { loginUser } from '../Actions/index';
 import { 
     SignupForm, 
     SignupInput, 
@@ -12,13 +14,26 @@ import {
 
 
 class Login extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         username: '',
-    //         password: ''
-    //     }
-    // }
+    state = {
+        user: {
+            username: '',
+            password: '',
+        }
+    }
+
+    handleChange = e => {
+        this.setState({
+            user: {
+                ...this.state.user,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
+    loginUser = () => {
+        this.props.loginUser(this.state.user)
+    }
+
     render() {
         return (
             <>
@@ -30,19 +45,22 @@ class Login extends Component {
                         type='text'
                         name='username'
                         placeholder='Username'
-                        // value={this.state.username}
-                        // onChange={this.handleChange}
+                        value={this.state.username}
+                        onChange={this.handleChange}
                     />
 
                     <SignupInput
                         type='text'
                         name='password'
                         placeholder='Password'
-                        // value={this.state.password}
-                        // onChange={this.handleChange}
+                        value={this.state.password}
+                        onChange={this.handleChange}
                     />
-
-                    <SignupButton type='submit'>Login</SignupButton>
+                    {/* This should login the user */}
+                    <SignupButton 
+                    type='submit' 
+                    onClick={() => this.loginUser(this.state)}>
+                    Login</SignupButton>
                     
                 </SignupForm>
             </SignupDiv>
@@ -59,4 +77,4 @@ class Login extends Component {
     
 }
 
-export default Login;
+export default connect(null, {loginUser})(Login);
