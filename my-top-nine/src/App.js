@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
 import LoginView from './Components/LoginView';
+import Home from './Components/Home';
 
 class App extends Component {
   render() {
@@ -13,6 +14,10 @@ class App extends Component {
         (<Redirect to='/' />) 
         : ( <LoginView />))} /> 
         {/* This is the component that holds login/signup */}
+        <Route exact path='/' 
+        render={() => (!this.props.isLoggedIn ? 
+        (<Redirect to='/login' />) 
+        : ( <Home /> ))} />
       </div>
     );
   }

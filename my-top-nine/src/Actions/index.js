@@ -14,7 +14,7 @@ export const signupUser = user => dispatch => {
         type: SIGNUP_USER_BEGIN
     })
     axios
-    .post('https://mytopnine.herokuapp.com/', user)
+    .post('https://mytopnine.herokuapp.com/signup', user)
     .then(res => dispatch({
         type: SIGNUP_USER_SUCCESS,
         payload: res.data
