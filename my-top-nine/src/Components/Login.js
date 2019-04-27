@@ -65,7 +65,7 @@ class Login extends Component {
                 </SignupForm>
             </SignupDiv>
             <LinkDiv>
-                <Link to='/' 
+                <Link to='/signup' 
                 style={{ textDecoration: 'none', 
                 color: '#444444' }}>
                 Need to Sign up?

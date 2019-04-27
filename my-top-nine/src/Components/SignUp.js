@@ -70,7 +70,6 @@ class SignUp extends Component {
                 </SignupForm>
             </SignupDiv>
             <LinkDiv>
-                <Route exact path='/login' component={Login} />
                 <Link to='/login' 
                 style={{ textDecoration: 'none',
                 color: '#444444' }}>
