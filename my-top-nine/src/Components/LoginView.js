@@ -9,7 +9,7 @@ class LoginView extends Component {
     render() {
         return(
             <div>
-            <Route exact path='/' component={SignUp} />
+            <Route exact path='/signup' component={SignUp} />
             <Route path='/login' component={Login} />
             <Route path='/login-page' component={LoginPage} />
             </div>
@@ -18,3 +18,5 @@ class LoginView extends Component {
 }
 
 export default LoginView;
+
+// This is the view that holds all of the routing to the Signup / Login pages.
