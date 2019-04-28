@@ -58,6 +58,9 @@ const SignupP = styled.p`
     color: #444444;
 `
 
+import styled from 'styled-components';
+
+
 const HeaderDiv = styled.div`
   display: flex;
   justify-content: space-between;

@@ -34,8 +34,7 @@ class App extends Component {
       </Container>
     );
   }
-}
-  
+
 
 const mapStateToProps = state => ({
   isLoggedIn: state.isLoggedIn
