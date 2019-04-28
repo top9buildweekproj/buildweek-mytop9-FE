@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 const SignupDiv = styled.div`
@@ -58,7 +59,6 @@ const SignupP = styled.p`
     color: #444444;
 `
 
-import styled from 'styled-components';
 
 
 const HeaderDiv = styled.div`

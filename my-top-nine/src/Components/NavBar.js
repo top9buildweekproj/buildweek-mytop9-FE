@@ -5,7 +5,7 @@ import { Link, LinkDiv } from 'react-router-dom';
 
 export default class Example extends React.Component {
     state = {
-      dropdownOpen: true
+      dropdownOpen: false
     };
   
 
