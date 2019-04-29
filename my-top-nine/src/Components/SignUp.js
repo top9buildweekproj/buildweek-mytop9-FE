@@ -45,7 +45,7 @@ class SignUp extends Component {
             <>
             <SignupDiv>
                 <Signuph3>My Top 9</Signuph3>
-                <SignupP>Sign up to see your top 9</SignupP>
+                <SignupP>Sign up to choose your top 9</SignupP>
                 <SignupForm>
                     <SignupInput
                         type='text'
@@ -65,7 +65,9 @@ class SignUp extends Component {
                     {/* this should create a new account */}
                     <SignupButton 
                     type='submit'
-                    onClick={() => this.props.signupUser(this.state)}>
+                    onClick={e => {
+                    e.preventDefault() 
+                    this.props.signupUser(this.state)}}>
                     Sign up</SignupButton>       
                 </SignupForm>
             </SignupDiv>
