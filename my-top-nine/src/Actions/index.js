@@ -9,6 +9,9 @@ export const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE'
 export const GET_CATEGORY = 'GET_CATEGORY'
 export const FETCHING = 'FETCHING'
 export const ERROR = 'ERROR'
+export const LOGOUT_USER_BEGIN = 'LOGOUT_USER_BEGIN'
+export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS'
+export const LOGOUT_USER_ERROR = 'LOGOUT_USER_ERROR'
 
 
 const url = ''
@@ -38,13 +41,39 @@ export const loginUser = user => dispatch => {
         type: LOGIN_USER_BEGIN
     })
     axios
-    .post('https://mytopnine.herokuapp.com/users', user)
-    .then(res => dispatch({
-        type: LOGIN_USER_SUCCESS,
-        payload: res.data
-    }))
+    .get('https://mytopnine.herokuapp.com/users', user)
+    .then(res => {
+        localStorage.setItem('username', user.username);
+        localStorage.setItem('isLoggedIn', true)
+        window.location.reload();
+        dispatch({
+            type: LOGIN_USER_BEGIN,
+            payload: res.data
+        })
+    })
     .catch(err => dispatch({
         type: LOGIN_USER_FAILURE,
+        payload: err
+    }))
+}
+
+// logic for logging out user
+export const logoutUser = () => dispatch => {
+    dispatch({
+        type: LOGOUT_USER_BEGIN
+    })
+    axios
+    .get('https://mytopnine.herokuapp.com/users')
+    .then(res => {
+        localStorage.removeItem('isLoggedIn')
+        window.location.reload();
+        dispatch({
+            type: LOGOUT_USER_SUCCESS,
+            payload: res.data
+        })
+    })
+    .catch(err => dispatch({
+        type: LOGOUT_USER_ERROR,
         payload: err
     }))
 }

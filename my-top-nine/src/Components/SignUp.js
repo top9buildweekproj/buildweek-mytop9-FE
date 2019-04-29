@@ -65,7 +65,9 @@ class SignUp extends Component {
                     {/* this should create a new account */}
                     <SignupButton 
                     type='submit'
-                    onClick={() => this.props.signupUser(this.state)}>
+                    onClick={e => {
+                    e.preventDefault() 
+                    this.props.signupUser(this.state)}}>
                     Sign up</SignupButton>       
                 </SignupForm>
             </SignupDiv>
