@@ -3,7 +3,7 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import PropTypes from 'prop-types';
 import { Link, LinkDiv } from 'react-router-dom';
 
-export default class Example extends React.Component {
+export default class NavBar extends React.Component {
     state = {
       dropdownOpen: false
     };
