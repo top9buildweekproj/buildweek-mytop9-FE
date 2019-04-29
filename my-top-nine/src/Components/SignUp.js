@@ -45,7 +45,7 @@ class SignUp extends Component {
             <>
             <SignupDiv>
                 <Signuph3>My Top 9</Signuph3>
-                <SignupP>Sign up to see your top 9</SignupP>
+                <SignupP>Sign up to choose your top 9</SignupP>
                 <SignupForm>
                     <SignupInput
                         type='text'

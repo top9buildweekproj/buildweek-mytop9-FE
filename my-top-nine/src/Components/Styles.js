@@ -1,19 +1,23 @@
 
 import styled from 'styled-components';
 
+
+// styles for signup/login components
 const SignupDiv = styled.div`
     border: 1px solid darkgray;
-    width: 20%;
+    width: 30%;
     margin: 0 auto;
     margin-top: 10%;
+    box-shadow: 15px 12px 10px -8px #333;
 `
 
 const LinkDiv = styled.div`
     border: 1px solid darkgray;
-    width: 20%;
+    width: 30%;
     margin: 0 auto;
     margin-top: .8%;
     padding: 20px 0;
+    box-shadow: 15px 12px 10px -8px #333;
 `
 
 const SignupForm = styled.form`
@@ -60,7 +64,7 @@ const SignupP = styled.p`
 `
 
 
-
+// styles for Header component
 const HeaderDiv = styled.div`
   display: flex;
   justify-content: space-between;
@@ -111,6 +115,17 @@ const HeaderSpans = styled.span`
     } 
 `;
 
+const LogoutButton = styled.button`
+    margin-top: 86px;
+    background-color: white;
+    border: none;
+    // text-decoration: underline;
+
+        &:hover {
+            color: lightgray;
+        }
+`
+
 export {
     SignupForm,
     SignupInput,
@@ -121,5 +136,6 @@ export {
     LinkDiv,
     HeaderDiv,
     HeaderSpans,
-    HeaderH1
+    HeaderH1,
+    LogoutButton
 }

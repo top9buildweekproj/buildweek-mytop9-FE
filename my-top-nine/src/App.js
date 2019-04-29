@@ -3,7 +3,6 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
 import Login from './Components/Login';
-import Home from './Components/Home';
 import SignUp from './Components/SignUp';
 import HomePage from './Components/HomePage';
 import { Container} from 'reactstrap';
@@ -43,7 +42,6 @@ class App extends Component {
         render={() => (!this.state.isLoggedIn ? 
         (<Redirect to='/login' />) 
         : ( <HomePage/> ))} />
-        {/* <HomePage/> */}
       </Switch>
         
       </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HeaderH1, HeaderDiv, HeaderSpans } from './Styles';
+import { HeaderH1, HeaderDiv, HeaderSpans, LogoutButton } from './Styles';
 import Moment from './Moment/Moment';
 import NavBar from './NavBar';
 import { logoutUser } from '../Actions/index';
@@ -29,11 +29,11 @@ class Header extends Component{
           <HeaderH1>My Top 9</HeaderH1>
           
           <HeaderSpans temp>69°</HeaderSpans>
-          <button
+          <LogoutButton
           onClick={e => { 
           e.preventDefault()
           this.logoutUser(this.state)}}
-          >Log Out</button>
+          >Log Out</LogoutButton>
         </HeaderDiv>
         <NavBar/>
       </div>
