@@ -56,7 +56,7 @@ class SignUp extends Component {
                     />
 
                     <SignupInput
-                        type='text'
+                        type='password'
                         name='password'
                         placeholder='Password'
                         value={this.state.password}
