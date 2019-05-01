@@ -7,16 +7,21 @@ import {
     LOGIN_USER_FAILURE,
     LOGOUT_USER_BEGIN,
     LOGOUT_USER_SUCCESS,
-    LOGOUT_USER_ERROR
+    LOGOUT_USER_ERROR,
+    USER_CATEGORY_GETTING,
+    USER_CATEGORY_RECEIVED,
+    USER_CATEGORY_FAILURE
 } from '../Actions';
 
 
 // Initial state for store
 const initialState = {
     users: [],
+    UserCategories: [],
     isSigningUp: false,
     isLoggingIn: false,
     isLoggedIn: false,
+    isGettingUserCategories: false,
     error: null
 }
 
@@ -86,6 +91,26 @@ export const rootReducer = (state = initialState, action) => {
                 isLoggedIn: true,
                 error: action.payload
             }
+
+        case USER_CATEGORY_GETTING:
+            return {
+                ...state,
+                isGettingUserCategories: true,
+                error: null
+            }
+
+        case USER_CATEGORY_RECEIVED:
+        return {
+            ...state,
+            isGettingUserCategories: false,
+            UserCategories: action.payload
+        }
+
+        case USER_CATEGORY_FAILURE:
+        return {
+            ...state,
+            error: action.payload
+        }
 
         default:
             return state;

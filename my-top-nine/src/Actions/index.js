@@ -12,6 +12,9 @@ export const ERROR = 'ERROR'
 export const LOGOUT_USER_BEGIN = 'LOGOUT_USER_BEGIN'
 export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS'
 export const LOGOUT_USER_ERROR = 'LOGOUT_USER_ERROR'
+export const USER_CATEGORY_GETTING = 'USER_CATEGORY_GETTING'
+export const USER_CATEGORY_RECEIVED = 'USER_CATEGORY_RECEIVED'
+export const USER_CATEGORY_FAILURE = 'USER_CATEGORY_FAILURE'
 
 
 const url = ''
@@ -92,4 +95,26 @@ export const getCategory = () => {
          dispatch({type: ERROR, error: 'Sorry having some issues loading category, try again!'})
       } );
   }
+}
+
+// logic for getting user specific category
+
+export const getUserCategory = (userId) => dispatch => {
+    dispatch({
+        type: USER_CATEGORY_GETTING
+    })
+    axios
+    .get(`https://mytopnine.herokuapp.com/users/users/${userId}`)
+    .then(res => {
+        dispatch({
+            type: USER_CATEGORY_RECEIVED,
+            payload: res.data
+        })
+    })
+    .catch(err => {
+        dispatch({
+            type: USER_CATEGORY_FAILURE,
+            payload: err
+        })
+    })
 }
