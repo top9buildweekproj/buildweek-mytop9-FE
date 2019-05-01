@@ -59,7 +59,9 @@ class Login extends Component {
                     {/* This should login the user */}
                     <SignupButton 
                     type='submit' 
-                    onClick={() => this.loginUser(this.state)}>
+                    onClick={e => { 
+                    e.preventDefault()
+                    this.loginUser(this.state)}}>
                     Login</SignupButton>
                     
                 </SignupForm>
