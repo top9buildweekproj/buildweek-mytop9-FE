@@ -85,6 +85,7 @@ const HeaderH1 = styled.h1`
   flex: 8;
   text-align: center;
   color: #000;
+  cursor: pointer;
 `;
 
 const HeaderSpans = styled.span`
@@ -115,11 +116,27 @@ const HeaderSpans = styled.span`
     } 
 `;
 
+const UserButtons = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
 const LogoutButton = styled.button`
-    margin-top: 85px;
     background-color: white;
     border: none;
-    // text-decoration: underline;
+    font-weight: bold;
+    font-size: 1rem;
+
+        &:hover {
+            color: lightgray;
+        }
+`
+
+const MyAccount = styled.button`
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
 
         &:hover {
             color: lightgray;
@@ -129,24 +146,26 @@ const LogoutButton = styled.button`
 
 // Footer styling
 const FooterDiv = styled.div`
-    background-color: lightgray;
+    background-color: #333;
 `
 
 const FooterH3 = styled.h3`
     font-family: Didot, serif;
+    color: #CCCCCC;
     font-weight: bold;
     padding-top: 1.5rem;
 `
 
 const FooterH4 = styled.h4`
     font-family: Didot, serif;
+    color: #CCCCCC;
 `
 
 const FooterMeet = styled.a`
     font-family: Didot, serif;
+    color: #CCCCCC;
     text-decoration: none;
-    font-size: 1.5rem; 
-    color: black;
+    font-size: 1.5rem;
     &:hover {
         color: darkgray;
         text-decoration: none;
@@ -169,12 +188,13 @@ const FooterContent = styled.footer`
 
 
 const Copyright = styled.div`
-    background-color: lightgray;
+    background-color: #333;
     padding-top: 1.5rem;
 `
 const CopyrightP = styled.p`
     margin: 0;
     padding-bottom: .5rem;
+    color: #CCCCCC;
 `
 
 
@@ -199,5 +219,7 @@ export {
     Copyright,
     FooterMeetDiv,
     FooterContent,
-    CopyrightP
+    CopyrightP,
+    UserButtons,
+    MyAccount
 }

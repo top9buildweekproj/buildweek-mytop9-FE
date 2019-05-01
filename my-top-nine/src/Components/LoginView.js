@@ -8,8 +8,6 @@ class LoginView extends Component {
     render() {
         return(
             <div>
-            <Route path='/signup' component={SignUp} />
-            <Route path='/login' component={Login} />
             </div>
         )
     }

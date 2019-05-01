@@ -5,6 +5,7 @@ import './App.css';
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import HomePage from './Components/HomePage';
+import UserAccountPage from './Components/UserAccountPage';
 import { Container} from 'reactstrap';
 
 class App extends Component {
@@ -42,6 +43,10 @@ class App extends Component {
         render={() => (!this.state.isLoggedIn ? 
         (<Redirect to='/login' />) 
         : ( <HomePage/> ))} />
+        <Route exact path='/' component={HomePage} />
+        <Route path='/signup' component={SignUp} />
+        <Route path='/login' component={Login} />
+        <Route path='/my-account' component={UserAccountPage} />
       </Switch>
         
       </div>
