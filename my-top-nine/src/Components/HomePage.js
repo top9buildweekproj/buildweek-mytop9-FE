@@ -7,13 +7,14 @@ import Header from './Header';
 import NavBar from './NavBar'; 
 import Footer from './Footer';
 import { Container } from 'reactstrap';
+import Category from './Category';
 
-const Category = []
+
 
 
 class HomePage extends Component {
     componentDidMount() {
-        this.props.getCategory();
+       // this.props.getCategory();
 
     }
 
@@ -26,6 +27,7 @@ class HomePage extends Component {
              {this.props.fetchingCategory === true ? <h1>Loading Category...</h1> : null }
               {this.props.error && this.props.error.length > 0 ? <h1>{this.props.error}</h1> : null}
           {/* this.props.categories.map((category, id) => <Category category={category} key={id}/>) */}
+          <Category/>
             <Footer />
         </Container>
       

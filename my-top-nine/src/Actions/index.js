@@ -7,8 +7,9 @@ export const LOGIN_USER_BEGIN = 'LOGIN_USER_BEGIN'
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
 export const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE'
 export const GET_CATEGORY = 'GET_CATEGORY'
-export const FETCHING = 'FETCHING'
-export const ERROR = 'ERROR'
+export const FETCHING_CATEGORY_SUCCESS = 'FETCHING_CATEGORY_SUCCESS'
+export const FETCHING_CATEGORY = 'FETCHING_CATEGORY'
+export const FETCHING_CATEGORY_ERROR = 'FETCHING_CATEGORY_ERROR'
 export const LOGOUT_USER_BEGIN = 'LOGOUT_USER_BEGIN'
 export const LOGOUT_USER_SUCCESS = 'LOGOUT_USER_SUCCESS'
 export const LOGOUT_USER_ERROR = 'LOGOUT_USER_ERROR'
@@ -17,7 +18,7 @@ export const USER_CATEGORY_RECEIVED = 'USER_CATEGORY_RECEIVED'
 export const USER_CATEGORY_FAILURE = 'USER_CATEGORY_FAILURE'
 
 
-const url = ''
+
 
 
 // logic for signing up a new user
@@ -48,6 +49,7 @@ export const loginUser = user => dispatch => {
     .then(res => {
         localStorage.setItem('username', user.username);
         localStorage.setItem('isLoggedIn', true)
+        localStorage.setItem('userId', user.id)
         window.location.reload();
         dispatch({
             type: LOGIN_USER_BEGIN,
@@ -69,6 +71,8 @@ export const logoutUser = () => dispatch => {
     .get('https://mytopnine.herokuapp.com/users')
     .then(res => {
         localStorage.removeItem('isLoggedIn')
+        localStorage.removeItem('userId')
+        localStorage.removeItem('username')
         window.location.reload();
         dispatch({
             type: LOGOUT_USER_SUCCESS,
@@ -84,18 +88,24 @@ export const logoutUser = () => dispatch => {
 // logic for getting category 
 
 export const getCategory = () => {
-  return(dispatch) => {
-    dispatch({type: FETCHING});
-    axios
-      .get(url)
-      .then(response => {
-        dispatch({type: GET_CATEGORY, categories: response.data})  
-      })
-      .catch(err => {
-         dispatch({type: ERROR, error: 'Sorry having some issues loading category, try again!'})
-      } );
-  }
+    
+    return (dispatch) => {
+        dispatch({type: FETCHING_CATEGORY});
+        axios
+          .get('https://mytopnine.herokuapp.com/categories')
+          .then(response => {
+              dispatch({type: FETCHING_CATEGORY_SUCCESS, payload: response.data})
+          }
+            )
+            .catch(err => {
+                dispatch({type: FETCHING_CATEGORY_ERROR, payload: `Sorry having some issues loading category, try again! ${err}`})
+            } 
+                );
+    }
+
 }
+
+
 
 // logic for getting user specific category
 
