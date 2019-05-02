@@ -13,6 +13,8 @@ class Category extends Component {
     return (
         <div>
         {categories && categories.map((category, id) => <h1 key={id}>{category.category_name}</h1> )}
+        {///categories && categories.map((category, id) => <p key={id}>{category.imageUrl}</p> )
+    }
         
         </div>
 

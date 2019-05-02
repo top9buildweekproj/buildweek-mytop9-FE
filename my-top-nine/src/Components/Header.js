@@ -45,6 +45,7 @@ class Header extends Component{
         <HeaderDiv>
           <HeaderSpans date> <Moment /></HeaderSpans>
           <HeaderH1 onClick={this.homePageClick}>My Top 9</HeaderH1>
+            <NavBar/>
           
           <HeaderSpans temp>69°</HeaderSpans>
           <UserButtons>
@@ -56,7 +57,6 @@ class Header extends Component{
             >Log Out</LogoutButton>
            </UserButtons>     
         </HeaderDiv>
-        <NavBar/>
       </div>
     )
   }
