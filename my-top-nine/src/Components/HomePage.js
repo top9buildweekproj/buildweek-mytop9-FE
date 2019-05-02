@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import {getCategory} from '../Actions/index';
 import Carousel from './Carousel/Carousel';
 import Header from './Header';
-import NavBar from './NavBar'; 
 import Footer from './Footer';
 import { Container } from 'reactstrap';
 
-const Category = []
+// const Category = []
 
 
 class HomePage extends Component {

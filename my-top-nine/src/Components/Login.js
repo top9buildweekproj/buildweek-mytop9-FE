@@ -15,23 +15,19 @@ import {
 
 class Login extends Component {
     state = {
-        user: {
             username: '',
             password: '',
-        }
     }
 
     handleChange = e => {
         this.setState({
-            user: {
-                ...this.state.user,
+                ...this.state,
                 [e.target.name]: e.target.value
-            }
         })
     }
 
     loginUser = () => {
-        this.props.loginUser(this.state.user)
+        this.props.loginUser(this.state)
     }
 
     render() {

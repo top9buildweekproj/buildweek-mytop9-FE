@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { Link, LinkDiv } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class Example extends React.Component {
     state = {

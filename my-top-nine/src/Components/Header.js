@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { 
   HeaderH1, 
@@ -11,7 +10,6 @@ import {
 } from './Styles';
 import Moment from './Moment/Moment';
 import NavBar from './NavBar';
-import { Link } from 'react-router-dom';
 import { logoutUser } from '../Actions/index';
 import { connect } from 'react-redux';
 
@@ -37,6 +35,7 @@ class Header extends Component{
 
   logoutUser = () => {
     this.props.logoutUser(this.state.user)
+    this.props.history.push('/');
   }
 
   render() {
