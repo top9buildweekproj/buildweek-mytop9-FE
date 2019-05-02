@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CarousePics from './Images';
-import { CarouselData } from '../../data';
 
 
 

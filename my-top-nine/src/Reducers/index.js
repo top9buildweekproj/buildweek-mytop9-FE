@@ -10,7 +10,7 @@ import {
     LOGOUT_USER_ERROR,
     USER_CATEGORY_GETTING,
     USER_CATEGORY_RECEIVED,
-    USER_CATEGORY_FAILURE
+    USER_CATEGORY_FAILURE,
 } from '../Actions';
 
 
@@ -18,6 +18,7 @@ import {
 const initialState = {
     users: [],
     UserCategories: [],
+    userId: null,
     isSigningUp: false,
     isLoggingIn: false,
     isLoggedIn: false,
@@ -111,7 +112,6 @@ export const rootReducer = (state = initialState, action) => {
             ...state,
             error: action.payload
         }
-
         default:
             return state;
     }
