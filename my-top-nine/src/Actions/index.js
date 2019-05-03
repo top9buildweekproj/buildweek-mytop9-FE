@@ -121,7 +121,7 @@ export const getUserCategory = userId => dispatch => {
         type: USER_CATEGORY_GETTING
     })
     axios
-    .get(`https://mytopnine.herokuapp.com/users/users/${userId}`)
+    .post(`https://mytopnine.herokuapp.com/users/users/${userId}`)
     .then(res => {
         dispatch({
             type: USER_CATEGORY_RECEIVED,

@@ -20,7 +20,7 @@ import {
 // Initial state for store
 const initialState = {
     users: [],
-    UserCategories: [],
+    userCategories: [],
     userId: null,
     isSigningUp: false,
     isLoggingIn: false,
@@ -109,7 +109,7 @@ export const rootReducer = (state = initialState, action) => {
         return {
             ...state,
             isGettingUserCategories: false,
-            UserCategories: action.payload
+            userCategories: action.payload
         }
 
         case USER_CATEGORY_FAILURE:

@@ -23,7 +23,7 @@ export default class NavBar extends React.Component {
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem header>My Top 9</DropdownItem>
-          <DropdownItem divider />
+          {/* <DropdownItem divider /> */}
           <DropdownItem>
           <Link to='/login'>Sign Out</Link>
           </DropdownItem>
