@@ -10,9 +10,11 @@ class Category extends Component {
 
     render() {
         const {categories} = this.props
+        
     return (
         <div>
         {categories && categories.map((category, id) => <h1 key={id}>{category.category_name}</h1> )}
+        
         {///categories && categories.map((category, id) => <p key={id}>{category.imageUrl}</p> )
     }
         

@@ -27,11 +27,16 @@ export const signupUser = user => dispatch => {
         type: SIGNUP_USER_BEGIN
     })
     axios
-    .post('https://mytopnine.herokuapp.com/users', user)
-    .then(res => dispatch({
-        type: SIGNUP_USER_SUCCESS,
-        payload: res.data
-    }))
+    .post('https://mytopnine.herokuapp.com/register', user)
+    .then(res => {
+        localStorage.setItem('username', user.username);
+        localStorage.setItem('isLoggedIn', true)
+        window.location.reload();
+        dispatch({
+            type: SIGNUP_USER_SUCCESS,
+            payload: res.data
+        })
+    })
     .catch(err => dispatch({
         type: SIGNUP_USER_FAILURE,
         payload: err
@@ -45,7 +50,7 @@ export const loginUser = user => dispatch => {
         type: LOGIN_USER_BEGIN
     })
     axios
-    .get('https://mytopnine.herokuapp.com/users', user)
+    .post('https://mytopnine.herokuapp.com/login', user)
     .then(res => {
         localStorage.setItem('username', user.username);
         localStorage.setItem('isLoggedIn', true)
@@ -63,7 +68,7 @@ export const loginUser = user => dispatch => {
 }
 
 // logic for logging out user
-export const logoutUser = () => dispatch => {
+export const logoutUser = user => dispatch => {
     dispatch({
         type: LOGOUT_USER_BEGIN
     })
@@ -109,7 +114,7 @@ export const getCategory = () => {
 
 // logic for getting user specific category
 
-export const getUserCategory = (userId) => dispatch => {
+export const getUserCategory = userId => dispatch => {
     dispatch({
         type: USER_CATEGORY_GETTING
     })

@@ -21,6 +21,7 @@ import {
 const initialState = {
     users: [],
     UserCategories: [],
+    userId: null,
     isSigningUp: false,
     isLoggingIn: false,
     isLoggedIn: false,
