@@ -23,37 +23,37 @@ export const USER_CATEGORY_FAILURE = 'USER_CATEGORY_FAILURE'
 
 // logic for signing up a new user
 export const signupUser = user => dispatch => {
-    dispatch({
-        type: SIGNUP_USER_BEGIN
-    })
+    dispatch({ type: SIGNUP_USER_BEGIN });
     axios
     .post('https://mytopnine.herokuapp.com/register', user)
     .then(res => {
-        localStorage.setItem('username', user.username);
-        localStorage.setItem('isLoggedIn', true)
-        window.location.reload();
+        sessionStorage.setItem('isSignedUp', true)
+        // window.location.reload();
         dispatch({
             type: SIGNUP_USER_SUCCESS,
             payload: res.data
         })
-    })
-    .catch(err => dispatch({
+    }).catch((err) => {
+        console.log('test', err);
+        dispatch({
         type: SIGNUP_USER_FAILURE,
         payload: err
-    }))
+    })})
 }
 
 
 // logic for logging in the user
 export const loginUser = user => dispatch => {
+
     dispatch({
         type: LOGIN_USER_BEGIN
     })
     axios
     .post('https://mytopnine.herokuapp.com/login', user)
     .then(res => {
+        sessionStorage.setItem('jwt', res.data.token);
+        sessionStorage.setItem('isLoggedIn', true)
         localStorage.setItem('username', user.username);
-        localStorage.setItem('isLoggedIn', true)
         localStorage.setItem('userId', user.id)
         window.location.reload();
         dispatch({
@@ -73,43 +73,37 @@ export const logoutUser = user => dispatch => {
         type: LOGOUT_USER_BEGIN
     })
     axios
-    .get('https://mytopnine.herokuapp.com/users')
-    .then(res => {
-        localStorage.removeItem('isLoggedIn')
+        .get('https://mytopnine.herokuapp.com/users')
+        .then(res => {
+            sessionStorage.removeItem('isLoggedIn', false)
+            sessionStorage.removeItem('jwt')
+            localStorage.removeItem('userId')
+            localStorage.removeItem('username')
 
-        localStorage.removeItem('userId')
-        localStorage.removeItem('username')
-
-        window.location.reload();
-        dispatch({
-            type: LOGOUT_USER_SUCCESS,
-            payload: res.data
-        })
-    })
-    .catch(err => dispatch({
-        type: LOGOUT_USER_ERROR,
-        payload: err
-    }))
+            window.location.reload();
+            dispatch({
+                type: LOGOUT_USER_SUCCESS,
+                payload: res.data
+            })})
+            .catch(err => dispatch({
+                type: LOGOUT_USER_ERROR,
+                payload: err
+            }));
 }
 
 // logic for getting category 
 
 export const getCategory = () => {
-    
     return (dispatch) => {
-        dispatch({type: FETCHING_CATEGORY});
-        axios
-          .get('https://mytopnine.herokuapp.com/categories')
-          .then(response => {
-              dispatch({type: FETCHING_CATEGORY_SUCCESS, payload: response.data})
-          }
-            )
-            .catch(err => {
-                dispatch({type: FETCHING_CATEGORY_ERROR, payload: `Sorry having some issues loading category, try again! ${err}`})
-            } 
-                );
+      dispatch({type: FETCHING_CATEGORY});
+      axios
+        .get('https://mytopnine.herokuapp.com/categories')
+        .then(response => {
+           dispatch({type: FETCHING_CATEGORY_SUCCESS, payload: response.data})
+        }).catch(err => {
+            dispatch({type: FETCHING_CATEGORY_ERROR, payload: `Sorry having some issues loading category, try again! ${err}`})
+         });
     }
-
 }
 
 

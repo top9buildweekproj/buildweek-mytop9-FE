@@ -13,9 +13,12 @@ import {
 } from './Styles'; // Styled components
 
 class SignUp extends Component {
-    state = {
+    constructor(){
+        super();
+        this.state = {
             username: '',
             password: '',
+        }
     }
 
     handleChange = e => {
@@ -35,6 +38,7 @@ class SignUp extends Component {
 
 
     render() {
+        {console.log(this.state)}
         return(
             <>
             <SignupDiv>
@@ -77,8 +81,11 @@ class SignUp extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    isSigningUp: state.isSigningUp
-})
+const mapStateToProps = state => {
+    return{
+        users: [],
+        isSigningUp: state.isSigningUp
+    } 
+}
 
 export default connect(mapStateToProps, {signupUser})(SignUp);
