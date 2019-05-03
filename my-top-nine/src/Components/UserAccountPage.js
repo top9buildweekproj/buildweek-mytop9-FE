@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import Footer from './Footer';
+import LeftSidebar from './LeftSidebar';
 // import HomePage from './HomePage';
 import UserCategories from './UserCategories';
+import { RightSide, UserAccountPageDiv } from './Styles';
 
 class UserAccountPage extends Component {
 
@@ -11,16 +13,14 @@ class UserAccountPage extends Component {
         return(
             <div>
                 <Header />
-                <h3>My Account page</h3>
-
-                {/* User Categories will go below vvvvvvvvvvv */}
-                {/* <div>
-                    {this.props.userCategories.map(category => (
-                        <HomePage {...category} key={category.name} />
-                    ))}
-                </div> */}
-                <UserCategories />
-                <Footer />
+                <UserAccountPageDiv>
+                    <LeftSidebar />
+                    <RightSide>          
+                        <h3>My Account page</h3>
+                        <UserCategories />
+                        <Footer />
+                    </RightSide>
+                </UserAccountPageDiv>
             </div>
         )
     }
