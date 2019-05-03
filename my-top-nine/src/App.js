@@ -6,7 +6,8 @@ import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import HomePage from './Components/HomePage';
 import UserAccountPage from './Components/UserAccountPage';
-import { Container} from 'reactstrap';
+import { Container } from './Components/Styles';
+// import { Container} from 'reactstrap';
 
 class App extends Component {
   state = {

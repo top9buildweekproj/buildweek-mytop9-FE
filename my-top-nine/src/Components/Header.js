@@ -6,10 +6,7 @@ import { withRouter } from "react-router";
 import { 
   HeaderH1, 
   HeaderDiv, 
-  HeaderSpans, 
-  LogoutButton, 
-  UserButtons,
-  MyAccount
+  HeaderSpans,
 } from './Styles';
 import Moment from './Moment/Moment';
 import NavBar from './NavBar';
@@ -28,36 +25,18 @@ class Header extends Component{
     }
 }
 
-  MyAccountClick = () => {
-    this.props.history.push('my-account');
-  }
-
-  homePageClick = () => {
-    this.props.history.push('/');
-  }
-
-  logoutUser = () => {
-    this.props.logoutUser(this.state.user)
-    this.props.history.push('/');
-  }
+homePageClick = () => {
+  this.props.history.push('/');
+}
+  
 
   render() {
     return (
       <div>
         <HeaderDiv>
           <HeaderSpans date> <Moment /></HeaderSpans>
-          <HeaderH1 onClick={this.homePageClick}>My Top 9</HeaderH1>
-            <NavBar/>
-          
-          <HeaderSpans temp>69°</HeaderSpans>
-          <UserButtons>
-            <MyAccount onClick={this.MyAccountClick} >My Account</MyAccount>
-            <LogoutButton
-            onClick={e => { 
-            e.preventDefault()
-            this.logoutUser(this.state)}}
-            >Log Out</LogoutButton>
-           </UserButtons>     
+          <HeaderH1 onClick={this.homePageClick}>My Top 9</HeaderH1> 
+          <HeaderSpans temp>69°</HeaderSpans>   
         </HeaderDiv>
       </div>
     )
