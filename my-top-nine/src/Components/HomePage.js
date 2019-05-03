@@ -14,7 +14,6 @@ import Category from './Category';
 class HomePage extends Component {
     componentDidMount() {
        // this.props.getCategory();
-
     }
 
     render() {
@@ -29,14 +28,9 @@ class HomePage extends Component {
           <Category/>
             <Footer />
         </Container>
-      
-
-       
     );
 }
-
 }
-
 const mapStateToProps = state => {
     return {
         categories: state.categories,
@@ -44,5 +38,4 @@ const mapStateToProps = state => {
         fetchingCategory: state.fetchingCategory
     }
 }
-
 export default connect(mapStateToProps, { getCategory })(HomePage);

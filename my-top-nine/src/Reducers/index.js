@@ -11,10 +11,10 @@ import {
     USER_CATEGORY_GETTING,
     USER_CATEGORY_RECEIVED,
     USER_CATEGORY_FAILURE,
+
     FETCHING_CATEGORY_SUCCESS,
     FETCHING_CATEGORY_ERROR
-    
-} from '../Actions';
+  } from '../Actions';
 
 
 // Initial state for store
@@ -117,7 +117,6 @@ export const rootReducer = (state = initialState, action) => {
             ...state,
             error: action.payload
         }
-
         case FETCHING_CATEGORY_SUCCESS:
             return {
                 ...state, 

@@ -76,8 +76,10 @@ export const logoutUser = user => dispatch => {
     .get('https://mytopnine.herokuapp.com/users')
     .then(res => {
         localStorage.removeItem('isLoggedIn')
+
         localStorage.removeItem('userId')
         localStorage.removeItem('username')
+
         window.location.reload();
         dispatch({
             type: LOGOUT_USER_SUCCESS,
