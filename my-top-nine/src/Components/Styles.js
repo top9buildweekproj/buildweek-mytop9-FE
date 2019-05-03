@@ -74,7 +74,7 @@ const HeaderDiv = styled.div`
   border-bottom: 3px solid lightgrey;
   width: 100%;
   height: 120px;
-  margin-top: 44px;
+//   margin-top: 44px;
   padding-bottom: 15px;
 `;
 
@@ -119,52 +119,113 @@ const HeaderSpans = styled.span`
 const UserButtons = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
 `
 
 const LogoutButton = styled.button`
     background-color: white;
+    width: 25%;
+    padding: .25rem;
+    border-radius: .5rem;
     border: none;
     font-weight: bold;
     font-size: 1rem;
+    color: black;
+    margin-top: 3rem;
 
         &:hover {
-            color: lightgray;
+            color: #CCCCCC;
+            transform: rotate(360deg);
+            transition: transform .25s;
         }
 `
 
 const MyAccount = styled.button`
     background-color: white;
+    width: 25%;
+    padding: .25rem;
+    border-radius: .5rem;
     border: none;
     font-weight: bold;
     font-size: 1rem;
+    color: black;
+    margin-top: 1rem;
 
         &:hover {
-            color: lightgray;
+            color: #CCCCCC;
+            transform: rotate(360deg);
+            transition: transform .25s;
         }
 `
+
+const HomePageDiv = styled.div`
+    display: flex;        
+`
+
+const UserAccountPageDiv = styled.div`
+    display: flex;        
+`
+
+const LeftSide = styled.div`
+    width: 30%;
+    background-color: #2A2A2A;
+    border: 1px solid black;
+    opacity: .9;
+    margin-top: 1.6rem;
+`
+
+const LeftSideText = styled.p`
+    color: #CCCCCC;
+    padding: 2.6rem;
+    font-size: 1.4rem;
+`
+
+const RightSide = styled.div`
+    padding: 0 2.8rem 0 2.8rem;
+    width: 70%;
+    // background-color: #E9E9E9;
+`
+
+const Container = styled.div`
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+`
+
+const Icons = styled.div`
+    margin-top: 8.6rem;
+`
+
+const IconImg = styled.img`
+    width: 8%;
+    cursor: pointer;
+    margin: .2rem;
+    
+`
+
 
 
 // Footer styling
 const FooterDiv = styled.div`
-    background-color: #333;
+    border-top: 3px solid lightgrey;
+    margin-top: 3rem;
 `
 
 const FooterH3 = styled.h3`
     font-family: Didot, serif;
-    color: #CCCCCC;
     font-weight: bold;
     padding-top: 1.5rem;
 `
 
 const FooterH4 = styled.h4`
     font-family: Didot, serif;
-    color: #CCCCCC;
 `
 
 const FooterMeet = styled.a`
     font-family: Didot, serif;
-    color: #CCCCCC;
     text-decoration: none;
+    color: black;
     font-size: 1.5rem;
     &:hover {
         color: darkgray;
@@ -188,14 +249,20 @@ const FooterContent = styled.footer`
 
 
 const Copyright = styled.div`
-    background-color: #333;
     padding-top: 1.5rem;
 `
 const CopyrightP = styled.p`
     margin: 0;
     padding-bottom: .5rem;
+`
+
+const CopyrightPLeft = styled.p`
+    margin-top: 5rem;
+    padding-bottom: .5rem;
     color: #CCCCCC;
 `
+
+
 
 
 
@@ -211,6 +278,9 @@ export {
     HeaderSpans,
     HeaderH1,
     LogoutButton,
+    HomePageDiv,
+    LeftSide,
+    RightSide,
     FooterDiv,
     FooterH3,
     FooterH4,
@@ -220,6 +290,12 @@ export {
     FooterMeetDiv,
     FooterContent,
     CopyrightP,
+    CopyrightPLeft,
     UserButtons,
-    MyAccount
+    MyAccount,
+    Container,
+    LeftSideText,
+    Icons,
+    IconImg,
+    UserAccountPageDiv
 }
