@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (!localStorage.getItem('isLoggedIn')) {
+    if (!sessionStorage.getItem('isLoggedIn')) {
       this.setState({ 
         isLoggedIn: false
        })
@@ -30,20 +30,20 @@ class App extends Component {
     return (
       <Container>
       <div className="App">
+
       <Switch>
-        <Route path='/login' 
-        render={() => (this.state.isLoggedIn === true ? 
-        (<Redirect to='/' />) 
-        : ( <Login />))} /> 
-        <Route path='/signup' 
-        render={() => (this.state.isLoggedIn === true ? 
-        (<Redirect to='/' />) 
-        : ( <SignUp />))} />
+
+        <Route path='/login' render={() => 
+        (this.state.isLoggedIn === true ? (<Redirect to='/' />) : ( <Login />))} /> 
+
+        <Route path='/signup' render={() => 
+        (this.state.isLoggedIn === true ? (<Redirect to='/' />) : ( <SignUp />))} />
+
         {/* This is the component that holds login/signup */}
-        <Route exact path='/' 
-        render={() => (!this.state.isLoggedIn ? 
-        (<Redirect to='/login' />) 
-        : ( <HomePage/> ))} />
+
+        <Route exact path='/' render={() => 
+        (!this.state.isLoggedIn ? (<Redirect to='/login' />) : ( <HomePage/> ))} />
+
         <Route exact path='/' component={HomePage} />
         <Route path='/signup' component={SignUp} />
         <Route path='/login' component={Login} />

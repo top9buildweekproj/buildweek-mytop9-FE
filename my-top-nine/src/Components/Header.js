@@ -13,10 +13,6 @@ import NavBar from './NavBar';
 import { logoutUser } from '../Actions/index';
 import { connect } from 'react-redux';
 
-
-
-
-
 class Header extends Component{
   state = {
     user: {
@@ -29,7 +25,6 @@ homePageClick = () => {
   this.props.history.push('/');
 }
   
-
   render() {
     return (
       <div>
@@ -41,9 +36,6 @@ homePageClick = () => {
       </div>
     )
   }
-    
 }
-
-
 // export default Header
 export default withRouter(connect(null, {logoutUser})(Header));
