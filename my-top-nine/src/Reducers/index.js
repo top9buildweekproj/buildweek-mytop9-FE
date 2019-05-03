@@ -11,7 +11,10 @@ import {
     USER_CATEGORY_GETTING,
     USER_CATEGORY_RECEIVED,
     USER_CATEGORY_FAILURE,
-} from '../Actions';
+
+    FETCHING_CATEGORY_SUCCESS,
+    FETCHING_CATEGORY_ERROR
+  } from '../Actions';
 
 
 // Initial state for store
@@ -23,7 +26,9 @@ const initialState = {
     isLoggingIn: false,
     isLoggedIn: false,
     isGettingUserCategories: false,
-    error: null
+    error: null,
+    categories: [],
+    
 }
 
 
@@ -112,6 +117,19 @@ export const rootReducer = (state = initialState, action) => {
             ...state,
             error: action.payload
         }
+        
+        case FETCHING_CATEGORY_SUCCESS:
+            return {
+                ...state, 
+                categories: action.payload
+                
+            }
+
+        case FETCHING_CATEGORY_ERROR:
+            return {
+                ...state,
+                error: action.payload
+            }
         default:
             return state;
     }

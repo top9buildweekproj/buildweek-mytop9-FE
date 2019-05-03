@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
+
+import { Route, Redirect, Switch } from 'react-router-dom';
+import { withRouter } from "react-router";
+
 import { 
   HeaderH1, 
   HeaderDiv, 
@@ -44,6 +47,7 @@ class Header extends Component{
         <HeaderDiv>
           <HeaderSpans date> <Moment /></HeaderSpans>
           <HeaderH1 onClick={this.homePageClick}>My Top 9</HeaderH1>
+            <NavBar/>
           
           <HeaderSpans temp>69°</HeaderSpans>
           <UserButtons>
@@ -55,7 +59,6 @@ class Header extends Component{
             >Log Out</LogoutButton>
            </UserButtons>     
         </HeaderDiv>
-        <NavBar/>
       </div>
     )
   }

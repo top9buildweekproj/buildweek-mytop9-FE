@@ -3,7 +3,7 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default class Example extends React.Component {
+export default class NavBar extends React.Component {
     state = {
       dropdownOpen: false
     };
@@ -25,7 +25,7 @@ export default class Example extends React.Component {
           <DropdownItem header>My Top 9</DropdownItem>
           <DropdownItem divider />
           <DropdownItem>
-          <Link to='/'>Home</Link>
+          <Link to='/login'>Sign Out</Link>
           </DropdownItem>
           <DropdownItem>Categories</DropdownItem>
         </DropdownMenu>

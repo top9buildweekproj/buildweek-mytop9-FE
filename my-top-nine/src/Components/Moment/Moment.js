@@ -5,7 +5,7 @@ export default class Moment extends Component {
 
 
   static defaultProps = {
-    format: 'MMMM Do YYYY, h:mm:ss a',
+    format: 'MMMM Do YYYY, h:mm a',
     liveUpdate: true,
   };
 
