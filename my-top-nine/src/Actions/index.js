@@ -22,37 +22,37 @@ const url = ''
 
 // logic for signing up a new user
 export const signupUser = user => dispatch => {
-    dispatch({
-        type: SIGNUP_USER_BEGIN
-    })
+    dispatch({ type: SIGNUP_USER_BEGIN });
     axios
     .post('https://mytopnine.herokuapp.com/register', user)
     .then(res => {
-        localStorage.setItem('username', user.username);
-        localStorage.setItem('isLoggedIn', true)
-        window.location.reload();
+        sessionStorage.setItem('isSignedUp', true)
+        // window.location.reload();
         dispatch({
             type: SIGNUP_USER_SUCCESS,
             payload: res.data
         })
-    })
-    .catch(err => dispatch({
+    }).catch((err) => {
+        console.log('test', err);
+        dispatch({
         type: SIGNUP_USER_FAILURE,
         payload: err
-    }))
+    })})
 }
 
 
 // logic for logging in the user
 export const loginUser = user => dispatch => {
+
     dispatch({
         type: LOGIN_USER_BEGIN
     })
     axios
     .post('https://mytopnine.herokuapp.com/login', user)
     .then(res => {
-        localStorage.setItem('username', user.username);
-        localStorage.setItem('isLoggedIn', true)
+        sessionStorage.setItem('jwt', res.data.token);
+        sessionStorage.setItem('isLoggedIn', true)
+        // sessionStorage.setItem('user', user);
         window.location.reload();
         dispatch({
             type: LOGIN_USER_BEGIN,
