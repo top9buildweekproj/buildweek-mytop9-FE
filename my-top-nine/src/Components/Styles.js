@@ -209,6 +209,7 @@ const IconImg = styled.img`
 // Footer styling
 const FooterDiv = styled.div`
     border-top: 3px solid lightgrey;
+    margin-top: 3rem;
 `
 
 const FooterH3 = styled.h3`
