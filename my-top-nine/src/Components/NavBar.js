@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { Link, LinkDiv } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class NavBar extends React.Component {
     state = {
@@ -25,7 +25,7 @@ export default class NavBar extends React.Component {
           <DropdownItem header>My Top 9</DropdownItem>
           <DropdownItem divider />
           <DropdownItem>
-          <Link to='/'>Sign Out</Link>
+          <Link to='/login'>Sign Out</Link>
           </DropdownItem>
           <DropdownItem>Categories</DropdownItem>
         </DropdownMenu>
