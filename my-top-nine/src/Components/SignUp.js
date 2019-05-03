@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Login from './Login';
-import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { signupUser } from '../Actions/index';
 import { 
@@ -16,18 +14,14 @@ import {
 
 class SignUp extends Component {
     state = {
-        user: {
             username: '',
             password: '',
-        }
     }
 
     handleChange = e => {
         this.setState({
-            user: {
-                ...this.state.user,
+                ...this.state,
                 [e.target.name]: e.target.value
-            }
         })
     }
 
@@ -36,7 +30,7 @@ class SignUp extends Component {
     }
 
     signupUser = () => {
-        this.props.signupUser(this.state.user)
+        this.props.signupUser(this.state)
     }
 
 

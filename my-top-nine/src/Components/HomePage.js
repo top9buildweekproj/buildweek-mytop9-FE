@@ -4,18 +4,13 @@ import { connect } from 'react-redux';
 import { getCategory } from '../Actions/index';
 import Carousel from './Carousel/Carousel';
 import Header from './Header';
-import NavBar from './NavBar'; 
 import Footer from './Footer';
 import { Container } from 'reactstrap';
 import Category from './Category';
 
-
-
-
 class HomePage extends Component {
     componentDidMount() {
        // this.props.getCategory();
-
     }
 
     render() {
@@ -30,14 +25,9 @@ class HomePage extends Component {
           <Category/>
             <Footer />
         </Container>
-      
-
-       
     );
 }
-
 }
-
 const mapStateToProps = state => {
     return {
         categories: state.categories,
@@ -45,5 +35,4 @@ const mapStateToProps = state => {
         fetchingCategory: state.fetchingCategory
     }
 }
-
 export default connect(mapStateToProps, { getCategory })(HomePage);
