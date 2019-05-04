@@ -13,7 +13,11 @@ import {
     USER_CATEGORY_FAILURE,
 
     FETCHING_CATEGORY_SUCCESS,
-    FETCHING_CATEGORY_ERROR
+    FETCHING_CATEGORY_ERROR,
+    FETCHING_SUB_CATEGORY_SUCCESS,
+    FETCHING_SUB_CATEGORY_ERROR,
+    FETCHING_USERS_SUCCESS,
+    FETCHING_USERS_FAILURE
   } from '../Actions';
 
 
@@ -28,6 +32,8 @@ const initialState = {
     isGettingUserCategories: false,
     error: null,
     categories: [],
+    subCategories: []
+    
     
 }
 
@@ -117,7 +123,6 @@ export const rootReducer = (state = initialState, action) => {
             ...state,
             error: action.payload
         }
-        
         case FETCHING_CATEGORY_SUCCESS:
             return {
                 ...state, 
@@ -130,6 +135,31 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload
             }
+
+        case FETCHING_SUB_CATEGORY_SUCCESS:
+                return{
+                    ...state,
+                    subCategories: action.payload
+                }
+
+        case FETCHING_SUB_CATEGORY_ERROR:
+                    return{
+                        ...state,
+                        error: action.payload
+                    }
+        case FETCHING_USERS_SUCCESS: 
+                return{
+                    ...state,
+                    userId: action.payload.id
+                }
+
+        case FETCHING_USERS_FAILURE:
+                return{
+                    ...state,
+                    error: action.payload
+                }   
+            
+
         default:
             return state;
     }
