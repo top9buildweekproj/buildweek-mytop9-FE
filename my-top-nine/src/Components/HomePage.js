@@ -13,6 +13,10 @@ import {
     RightSide,
     Container, 
 } from './Styles';
+import SubCategory from './SubCategory';
+
+
+
 
 
 
@@ -36,8 +40,11 @@ class HomePage extends Component {
                     <Carousel/>
                     {this.props.fetchingCategory === true ? <h1>Loading Category...</h1> : null }
                     {this.props.error && this.props.error.length > 0 ? <h1>{this.props.error}</h1> : null}
-                    {/* this.props.categories.map((category, id) => <Category category={category} key={id}/>) */}
+                    {/* { this.props.categories.map((category, id) => <Category category={category} key={id}/>) } */}
                     <Category/>
+                    <SubCategory/>
+                   
+                   
                     <Footer />
                     
                 </RightSide>
