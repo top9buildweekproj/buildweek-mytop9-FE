@@ -18,7 +18,7 @@ export const USER_CATEGORY_RECEIVED = 'USER_CATEGORY_RECEIVED'
 export const USER_CATEGORY_FAILURE = 'USER_CATEGORY_FAILURE'
 
 
-
+const headers = { authorization: sessionStorage.getItem('jwt')}
 
 
 // logic for signing up a new user
@@ -28,7 +28,6 @@ export const signupUser = user => dispatch => {
     .post('https://mytopnine.herokuapp.com/register', user)
     .then(res => {
         sessionStorage.setItem('isSignedUp', true)
-        // window.location.reload();
         dispatch({
             type: SIGNUP_USER_SUCCESS,
             payload: res.data
@@ -77,6 +76,7 @@ export const logoutUser = user => dispatch => {
         .then(res => {
             sessionStorage.removeItem('isLoggedIn', false)
             sessionStorage.removeItem('jwt')
+            sessionStorage.removeItem('isSignedUp')
             localStorage.removeItem('userId')
             localStorage.removeItem('username')
 
@@ -106,8 +106,6 @@ export const getCategory = () => {
     }
 }
 
-
-
 // logic for getting user specific category
 
 export const getUserCategory = userId => dispatch => {
@@ -115,8 +113,9 @@ export const getUserCategory = userId => dispatch => {
         type: USER_CATEGORY_GETTING
     })
     axios
-    .post(`https://mytopnine.herokuapp.com/users/users/${userId}`)
+    .get(`https://mytopnine.herokuapp.com/users/users/${userId}`, {headers})
     .then(res => {
+        console.log(res)
         dispatch({
             type: USER_CATEGORY_RECEIVED,
             payload: res.data
