@@ -133,8 +133,6 @@ export const getCategory = () => {
     }
 }
 
-<<<<<<< HEAD
-=======
 
 // logic for getting sub category and ID associated with category 
 export const getSubCategory = (userId) => {
@@ -152,7 +150,6 @@ export const getSubCategory = (userId) => {
 
 
 
->>>>>>> 762271a53a496e0717359eef580e67415f73c221
 // logic for getting user specific category
 
 export const getUserCategory = userId => dispatch => {
