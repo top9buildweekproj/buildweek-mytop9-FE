@@ -2,9 +2,6 @@
   "name": "my-top-nine",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "yarn": "1.13.0"
-  },
   "dependencies": {
     "ajax": "^0.0.4",
     "axios": "^0.18.0",
@@ -23,7 +20,6 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.2.0"
   },
-  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
