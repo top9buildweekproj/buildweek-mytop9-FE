@@ -1,11 +1,4 @@
 {
-    "name": "my-top-nine",
-    "version": "0.1.0",
-    "private": true,
-    "engines": {
-      "node": "10.15.1",
-      "yarn": "1.13.0"
-    },
     "dependencies": {
       "ajax": "^0.0.4",
       "axios": "^0.18.0",
@@ -23,27 +16,6 @@
       "redux-logger": "^3.0.6",
       "redux-thunk": "^2.3.0",
       "styled-components": "^4.2.0"
-    },
-    "main": "index.js",
-    "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js"
-  },
-    
-    "eslintConfig": {
-      "extends": "react-app"
-    },
-    "browserslist": {
-      "production": [
-        ">0.2%",
-        "not dead",
-        "not op_mini all"
-      ],
-      "development": [
-        "last 1 chrome version",
-        "last 1 firefox version",
-        "last 1 safari version"
-      ]
     }
   }
   
