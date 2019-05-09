@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import Header from './Header';
 import Footer from './Footer';
 import LeftSidebar from './LeftSidebar';
-// import HomePage from './HomePage';
-import UserCategories from './UserCategories';
 import { RightSide, UserAccountPageDiv } from './Styles';
+import SubCategory from './SubCategory';
 
 class UserAccountPage extends Component {
 
@@ -17,7 +16,7 @@ class UserAccountPage extends Component {
                     <LeftSidebar />
                     <RightSide>          
                         <h3>My Account page</h3>
-                        <UserCategories />
+                        <SubCategory />
                         <Footer />
                     </RightSide>
                 </UserAccountPageDiv>
